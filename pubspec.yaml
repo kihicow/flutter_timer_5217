@@ -34,4 +34,4 @@ flutter_icons:
   android: false
   ios: true
   remove_alpha_ios: true
-  image_path_ios: "assets/icon/icon_1024.png"
+  image_path: "assets/icon/icon.png"

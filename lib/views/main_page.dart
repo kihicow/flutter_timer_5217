@@ -51,10 +51,13 @@ class _NumbersPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle? textStyle = Theme.of(context)
-        .textTheme
-        .headline1
-        ?.copyWith(fontFeatures: [const FontFeature.tabularFigures()]);
+    final TextStyle? textStyle =
+        Theme.of(context).textTheme.headline1?.copyWith(
+      fontFeatures: [const FontFeature.tabularFigures()],
+    );
+
+    final TextStyle? firstTextStyle =
+        textStyle?.copyWith(fontWeight: FontWeight.w300);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,7 +70,7 @@ class _NumbersPane extends StatelessWidget {
           },
           child: Text(
             WatchContext(context).watch<MainPageBloc>().state.first,
-            style: textStyle,
+            style: firstTextStyle,
           ),
         ),
         Row(
