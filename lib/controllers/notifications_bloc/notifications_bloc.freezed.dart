@@ -23,12 +23,9 @@ class _$NotificationsEventTearOff {
   }
 
   _NotificationAdded notificationAdded(
-      {required TZDateTime tzDateTime,
-      required String title,
-      required String body}) {
+      {required TZDateTime tzDateTime, required String body}) {
     return _NotificationAdded(
       tzDateTime: tzDateTime,
-      title: title,
       body: body,
     );
   }
@@ -54,7 +51,7 @@ mixin _$NotificationsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(TZDateTime tzDateTime, String title, String body)
+    required TResult Function(TZDateTime tzDateTime, String body)
         notificationAdded,
     required TResult Function() testNotificationSended,
     required TResult Function() selected,
@@ -64,8 +61,7 @@ mixin _$NotificationsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -74,8 +70,7 @@ mixin _$NotificationsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -170,7 +165,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(TZDateTime tzDateTime, String title, String body)
+    required TResult Function(TZDateTime tzDateTime, String body)
         notificationAdded,
     required TResult Function() testNotificationSended,
     required TResult Function() selected,
@@ -183,8 +178,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -196,8 +190,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -260,7 +253,7 @@ abstract class _$NotificationAddedCopyWith<$Res> {
   factory _$NotificationAddedCopyWith(
           _NotificationAdded value, $Res Function(_NotificationAdded) then) =
       __$NotificationAddedCopyWithImpl<$Res>;
-  $Res call({TZDateTime tzDateTime, String title, String body});
+  $Res call({TZDateTime tzDateTime, String body});
 }
 
 /// @nodoc
@@ -277,7 +270,6 @@ class __$NotificationAddedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tzDateTime = freezed,
-    Object? title = freezed,
     Object? body = freezed,
   }) {
     return _then(_NotificationAdded(
@@ -285,10 +277,6 @@ class __$NotificationAddedCopyWithImpl<$Res>
           ? _value.tzDateTime
           : tzDateTime // ignore: cast_nullable_to_non_nullable
               as TZDateTime,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -300,19 +288,16 @@ class __$NotificationAddedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_NotificationAdded implements _NotificationAdded {
-  const _$_NotificationAdded(
-      {required this.tzDateTime, required this.title, required this.body});
+  const _$_NotificationAdded({required this.tzDateTime, required this.body});
 
   @override
   final TZDateTime tzDateTime;
-  @override
-  final String title;
-  @override
+  @override // required String title,
   final String body;
 
   @override
   String toString() {
-    return 'NotificationsEvent.notificationAdded(tzDateTime: $tzDateTime, title: $title, body: $body)';
+    return 'NotificationsEvent.notificationAdded(tzDateTime: $tzDateTime, body: $body)';
   }
 
   @override
@@ -322,7 +307,6 @@ class _$_NotificationAdded implements _NotificationAdded {
             other is _NotificationAdded &&
             const DeepCollectionEquality()
                 .equals(other.tzDateTime, tzDateTime) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.body, body));
   }
 
@@ -330,7 +314,6 @@ class _$_NotificationAdded implements _NotificationAdded {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(tzDateTime),
-      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
@@ -342,41 +325,39 @@ class _$_NotificationAdded implements _NotificationAdded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(TZDateTime tzDateTime, String title, String body)
+    required TResult Function(TZDateTime tzDateTime, String body)
         notificationAdded,
     required TResult Function() testNotificationSended,
     required TResult Function() selected,
     required TResult Function() canceled,
   }) {
-    return notificationAdded(tzDateTime, title, body);
+    return notificationAdded(tzDateTime, body);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
   }) {
-    return notificationAdded?.call(tzDateTime, title, body);
+    return notificationAdded?.call(tzDateTime, body);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
     required TResult orElse(),
   }) {
     if (notificationAdded != null) {
-      return notificationAdded(tzDateTime, title, body);
+      return notificationAdded(tzDateTime, body);
     }
     return orElse();
   }
@@ -426,11 +407,9 @@ class _$_NotificationAdded implements _NotificationAdded {
 abstract class _NotificationAdded implements NotificationsEvent {
   const factory _NotificationAdded(
       {required TZDateTime tzDateTime,
-      required String title,
       required String body}) = _$_NotificationAdded;
 
-  TZDateTime get tzDateTime;
-  String get title;
+  TZDateTime get tzDateTime; // required String title,
   String get body;
   @JsonKey(ignore: true)
   _$NotificationAddedCopyWith<_NotificationAdded> get copyWith =>
@@ -479,7 +458,7 @@ class _$_TestNotificationSended implements _TestNotificationSended {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(TZDateTime tzDateTime, String title, String body)
+    required TResult Function(TZDateTime tzDateTime, String body)
         notificationAdded,
     required TResult Function() testNotificationSended,
     required TResult Function() selected,
@@ -492,8 +471,7 @@ class _$_TestNotificationSended implements _TestNotificationSended {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -505,8 +483,7 @@ class _$_TestNotificationSended implements _TestNotificationSended {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -604,7 +581,7 @@ class _$_Selected implements _Selected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(TZDateTime tzDateTime, String title, String body)
+    required TResult Function(TZDateTime tzDateTime, String body)
         notificationAdded,
     required TResult Function() testNotificationSended,
     required TResult Function() selected,
@@ -617,8 +594,7 @@ class _$_Selected implements _Selected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -630,8 +606,7 @@ class _$_Selected implements _Selected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -729,7 +704,7 @@ class _$_Canceled implements _Canceled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(TZDateTime tzDateTime, String title, String body)
+    required TResult Function(TZDateTime tzDateTime, String body)
         notificationAdded,
     required TResult Function() testNotificationSended,
     required TResult Function() selected,
@@ -742,8 +717,7 @@ class _$_Canceled implements _Canceled {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,
@@ -755,8 +729,7 @@ class _$_Canceled implements _Canceled {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(TZDateTime tzDateTime, String title, String body)?
-        notificationAdded,
+    TResult Function(TZDateTime tzDateTime, String body)? notificationAdded,
     TResult Function()? testNotificationSended,
     TResult Function()? selected,
     TResult Function()? canceled,

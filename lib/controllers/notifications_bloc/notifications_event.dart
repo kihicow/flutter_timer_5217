@@ -6,7 +6,6 @@ class NotificationsEvent with _$NotificationsEvent {
 
   const factory NotificationsEvent.notificationAdded({
     required TZDateTime tzDateTime,
-    required String title,
     required String body,
   }) = _NotificationAdded;
 

@@ -21,12 +21,19 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
         _notificationsBloc = notificationsBloc,
         super(const Initial()) {
     on<_Started>(_started);
+
     on<_TimerUpdated>(_timerUpdated);
+
     on<_TimerFirstPressed>(_timerFirstPressed);
+
     on<_TimerSecondPressed>(_timerSecondPressed);
+
     on<_TimerStarted>(_timerStarted);
+
     on<_TimerResetPressed>(_timerResetPressed);
+
     on<_TimerPausePressed>(_timerPausePressed);
+
     on<_TimerFinished>(_timerFinished);
 
     add(_Started(sharedPreferences));
@@ -37,7 +44,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
 
   late final SharedPreferences _sharedPreferences;
 
-  final String notificationKey = 'notificationDateTime';
+  final String _notificationKey = 'notificationDateTime';
 
   @override
   Future<void> close() async {
@@ -75,25 +82,27 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
           );
 
           _sharedPreferences.setInt(
-              notificationKey, finish.millisecondsSinceEpoch);
+            _notificationKey,
+            finish!.millisecondsSinceEpoch,
+          );
         },
         inProgress: (_, __, duration) {
           add(_TimerUpdated(duration));
         },
         pause: (current) {
           _notificationsBloc.add(const NotificationsEvent.canceled());
-          _sharedPreferences.remove(notificationKey);
+          _sharedPreferences.remove(_notificationKey);
         },
         finish: () {
           add(const _TimerFinished());
-          _sharedPreferences.remove(notificationKey);
+          _sharedPreferences.remove(_notificationKey);
         },
       );
     });
   }
 
   Future<void> _getData() async {
-    final int? notification = _sharedPreferences.getInt(notificationKey);
+    final int? notification = _sharedPreferences.getInt(_notificationKey);
 
     if (notification == null) return;
 
@@ -103,7 +112,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
       final DateTime finish = DateTime.fromMillisecondsSinceEpoch(notification);
       add(_TimerStarted(start: now, finish: finish));
     } else {
-      _sharedPreferences.remove(notificationKey);
+      _sharedPreferences.remove(_notificationKey);
     }
   }
 
@@ -174,7 +183,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
 
     _notificationsBloc.add(const NotificationsEvent.canceled());
 
-    _sharedPreferences.remove(notificationKey);
+    _sharedPreferences.remove(_notificationKey);
   }
 
   FutureOr<void> _timerPausePressed(

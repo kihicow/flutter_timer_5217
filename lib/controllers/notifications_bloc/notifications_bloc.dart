@@ -7,6 +7,8 @@ import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:timezone/data/latest.dart';
 import 'package:timezone/timezone.dart';
 
+import '../../config.dart';
+
 part 'notifications_event.dart';
 part 'notifications_state.dart';
 part 'notifications_bloc.freezed.dart';
@@ -17,7 +19,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
 
     const AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails(
-      '52/17',
+      kAppName,
       'The end',
       channelDescription: 'Notification after the end of the period',
       importance: Importance.max,
@@ -31,7 +33,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     on<_TestNotificationSended>((event, emit) {
       _flutterLocalNotificationsPlugin.show(
         0,
-        '52/17',
+        kAppName,
         'Test notification',
         notificationDetails,
       );
@@ -61,7 +63,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
 
       _flutterLocalNotificationsPlugin.zonedSchedule(
         0,
-        event.title,
+        kAppName,
         event.body,
         event.tzDateTime,
         notificationDetails,
