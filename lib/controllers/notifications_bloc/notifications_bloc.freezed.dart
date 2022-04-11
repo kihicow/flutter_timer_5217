@@ -292,7 +292,7 @@ class _$_NotificationAdded implements _NotificationAdded {
 
   @override
   final TZDateTime tzDateTime;
-  @override // required String title,
+  @override
   final String body;
 
   @override
@@ -409,7 +409,7 @@ abstract class _NotificationAdded implements NotificationsEvent {
       {required TZDateTime tzDateTime,
       required String body}) = _$_NotificationAdded;
 
-  TZDateTime get tzDateTime; // required String title,
+  TZDateTime get tzDateTime;
   String get body;
   @JsonKey(ignore: true)
   _$NotificationAddedCopyWith<_NotificationAdded> get copyWith =>

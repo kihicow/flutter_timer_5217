@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart';
@@ -86,19 +87,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
 
     _timerBloc.stream.listen((state) {
       state.whenOrNull(
-        timerStart: (_, finish, duration) {
-          final DateTime finishUtc = finish!.toUtc();
-
-          final TZDateTime tzDateTime = TZDateTime.from(finishUtc, UTC);
-
-          _notificationsBloc.add(
-            NotificationsEvent.notificationAdded(
-              tzDateTime: tzDateTime,
-              title: '52/17',
-              body: 'Time is up',
-            ),
-          );
-
+        timerStart: (_, finish, __) {
           _sharedPreferences.setInt(
             _notificationKey,
             finish!.millisecondsSinceEpoch,
@@ -250,6 +239,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     _TimerFinished event,
     Emitter<MainPageState> emit,
   ) {
+    FlutterRingtonePlayer.playNotification();
     emit(const Initial());
   }
 }
