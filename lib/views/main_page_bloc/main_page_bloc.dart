@@ -238,8 +238,13 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
   FutureOr<void> _timerFinished(
     _TimerFinished event,
     Emitter<MainPageState> emit,
-  ) {
-    FlutterRingtonePlayer.playNotification();
+  ) async {
+    final bool enabled = await _notificationsBloc.areNotificationsEnabled();
+
+    if (!enabled) {
+      FlutterRingtonePlayer.playNotification();
+    }
+
     emit(const Initial());
   }
 }

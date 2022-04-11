@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -104,6 +105,30 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         onSelectNotification: (value) {
       add(const _Selected());
     });
+  }
+
+  Future<bool> areNotificationsEnabled() async {
+    if (Platform.isIOS) {
+      return await _flutterLocalNotificationsPlugin
+              .resolvePlatformSpecificImplementation<
+                  IOSFlutterLocalNotificationsPlugin>()
+              ?.requestPermissions(
+                alert: true,
+                badge: true,
+                sound: true,
+              ) ??
+          false;
+    }
+
+    if (Platform.isAndroid) {
+      return await _flutterLocalNotificationsPlugin
+              .resolvePlatformSpecificImplementation<
+                  AndroidFlutterLocalNotificationsPlugin>()
+              ?.areNotificationsEnabled() ??
+          false;
+    }
+
+    return false;
   }
 
   Future<void> _configureLocalTimeZone() async {
