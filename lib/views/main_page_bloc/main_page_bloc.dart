@@ -59,6 +59,24 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
   String _seconds(Duration duration) =>
       (duration.inSeconds % 60).floor().toString().padLeft(2, '0');
 
+  void _addNotification({
+    required DateTime finish,
+    required String text,
+  }) {
+    _notificationsBloc.add(const NotificationsEvent.canceled());
+
+    final DateTime finishUtc = finish.toUtc();
+
+    final TZDateTime tzDateTime = TZDateTime.from(finishUtc, UTC);
+
+    _notificationsBloc.add(
+      NotificationsEvent.notificationAdded(
+        tzDateTime: tzDateTime,
+        body: text,
+      ),
+    );
+  }
+
   FutureOr<void> _started(
     _Started event,
     Emitter<MainPageState> emit,
@@ -135,6 +153,11 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     final DateTime start = DateTime.now();
     final DateTime finish = start.add(const Duration(minutes: 52)); //TODO
 
+    _addNotification(
+      finish: finish,
+      text: '52 minutes are up',
+    );
+
     add(
       _TimerStarted(
         start: start,
@@ -151,6 +174,11 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
 
     final DateTime start = DateTime.now();
     final DateTime finish = start.add(const Duration(minutes: 17));
+
+    _addNotification(
+      finish: finish,
+      text: '17 minutes are up',
+    );
 
     add(
       _TimerStarted(
