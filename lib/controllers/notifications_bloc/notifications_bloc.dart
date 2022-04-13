@@ -16,73 +16,33 @@ part 'notifications_bloc.freezed.dart';
 
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   NotificationsBloc() : super(const _Initial()) {
-    _init();
+    on<_Started>(_started);
 
-    const AndroidNotificationDetails androidNotificationDetails =
-        AndroidNotificationDetails(
-      kAppName,
-      'The end',
-      channelDescription: 'Notification after the end of the period',
-      importance: Importance.max,
-      priority: Priority.high,
-      ticker: 'ticker',
-    );
+    on<_TestNotificationSended>(_testNotificationSended);
 
-    const NotificationDetails notificationDetails =
-        NotificationDetails(android: androidNotificationDetails);
+    on<_NotificationAdded>(_notificationAdded);
 
-    on<_TestNotificationSended>((event, emit) {
-      _flutterLocalNotificationsPlugin.show(
-        0,
-        kAppName,
-        'Test notification',
-        notificationDetails,
-      );
-    });
-
-    void _requestPermissions() {
-      _flutterLocalNotificationsPlugin
-          .resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin>()
-          ?.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          );
-      _flutterLocalNotificationsPlugin
-          .resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin>()
-          ?.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          );
-    }
-
-    on<_NotificationAdded>((event, emit) {
-      _requestPermissions();
-
-      _flutterLocalNotificationsPlugin.zonedSchedule(
-        0,
-        kAppName,
-        event.body,
-        event.tzDateTime,
-        notificationDetails,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.wallClockTime,
-        androidAllowWhileIdle: true,
-      );
-    });
-
-    on<_Selected>((event, emit) {
-      add(const _Canceled());
-    });
+    on<_Selected>(_selected);
 
     on<_Canceled>(_canceled);
+
+    add(const _Started());
   }
 
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
+
+  static const AndroidNotificationDetails androidNotificationDetails =
+      AndroidNotificationDetails(
+    kAppName,
+    'Time is up',
+    channelDescription: 'Notification after the end of the period',
+    importance: Importance.max,
+    priority: Priority.high,
+  );
+
+  static const NotificationDetails notificationDetails =
+      NotificationDetails(android: androidNotificationDetails);
 
   Future<void> _init() async {
     await _configureLocalTimeZone();
@@ -90,9 +50,17 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
     const IOSInitializationSettings initializationSettingsIOS =
-        IOSInitializationSettings();
+        IOSInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
+    );
     const MacOSInitializationSettings initializationSettingsMacOS =
-        MacOSInitializationSettings();
+        MacOSInitializationSettings(
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
+    );
 
     const InitializationSettings initializationSettings =
         InitializationSettings(
@@ -137,6 +105,69 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     initializeTimeZones();
     final String? timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
     setLocalLocation(getLocation(timeZoneName!));
+  }
+
+  void _requestPermissions() {
+    _flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+          alert: true,
+          badge: true,
+          sound: true,
+        );
+    _flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            MacOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+          alert: true,
+          badge: true,
+          sound: true,
+        );
+  }
+
+  FutureOr<void> _started(
+    _Started event,
+    Emitter<NotificationsState> emit,
+  ) {
+    _init();
+  }
+
+  FutureOr<void> _testNotificationSended(
+    _TestNotificationSended event,
+    Emitter<NotificationsState> emit,
+  ) {
+    _flutterLocalNotificationsPlugin.show(
+      0,
+      kAppName,
+      'Test notification',
+      notificationDetails,
+    );
+  }
+
+  FutureOr<void> _notificationAdded(
+    _NotificationAdded event,
+    Emitter<NotificationsState> emit,
+  ) {
+    _requestPermissions();
+
+    _flutterLocalNotificationsPlugin.zonedSchedule(
+      0,
+      kAppName,
+      event.body,
+      event.tzDateTime,
+      notificationDetails,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.wallClockTime,
+      androidAllowWhileIdle: true,
+    );
+  }
+
+  FutureOr<void> _selected(
+    _Selected event,
+    Emitter<NotificationsState> emit,
+  ) {
+    add(const _Canceled());
   }
 
   FutureOr<void> _canceled(
