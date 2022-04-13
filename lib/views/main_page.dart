@@ -31,15 +31,53 @@ class _View extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Stack(
           children: const [
-            Expanded(child: _ControlButtons()),
-            _NumbersPane(),
-            Spacer(),
+            _NotificationButton(),
+            _MainStack(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _MainStack extends StatelessWidget {
+  const _MainStack({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: const [
+        Expanded(child: _ControlButtons()),
+        _NumbersPane(),
+        Spacer(),
+      ],
+    );
+  }
+}
+
+class _NotificationButton extends StatelessWidget {
+  const _NotificationButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      color: Theme.of(context).textTheme.headline1?.color,
+      onPressed: () {
+        ReadContext(context)
+            .read<MainPageBloc>()
+            .add(const MainPageEvent.notificationButtonPressed());
+      },
+      icon:
+          WatchContext(context).watch<MainPageBloc>().state.notificationsEnabled
+              ? const Icon(Icons.notifications_outlined)
+              : const Icon(Icons.notifications_off_outlined),
     );
   }
 }
@@ -56,56 +94,84 @@ class _NumbersPane extends StatelessWidget {
       fontFeatures: [const FontFeature.tabularFigures()],
     );
 
-    final TextStyle? firstTextStyle =
-        textStyle?.copyWith(fontWeight: FontWeight.w300);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        _FirstLine(textStyle: textStyle),
+        _SecondLine(textStyle: textStyle),
+      ],
+    );
+  }
+}
+
+class _SecondLine extends StatelessWidget {
+  const _SecondLine({
+    Key? key,
+    required this.textStyle,
+  }) : super(key: key);
+
+  final TextStyle? textStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Visibility(
+            maintainSize: true,
+            maintainAnimation: true,
+            maintainState: true,
+            visible:
+                WatchContext(context).watch<MainPageBloc>().state is! Initial,
+            child: Text(
+              WatchContext(context).watch<MainPageBloc>().state is Pause
+                  ? '.'
+                  : ':',
+              style: textStyle,
+              textAlign: TextAlign.end,
+            ),
+          ),
+        ),
         TextButton(
           onPressed: () {
             ReadContext(context)
                 .read<MainPageBloc>()
-                .add(const MainPageEvent.timerFirstPressed());
+                .add(const MainPageEvent.timerSecondPressed());
           },
           child: Text(
-            WatchContext(context).watch<MainPageBloc>().state.first,
-            style: firstTextStyle,
+            WatchContext(context).watch<MainPageBloc>().state.second,
+            style: textStyle,
           ),
         ),
-        Row(
-          children: [
-            Expanded(
-              child: Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: WatchContext(context).watch<MainPageBloc>().state
-                    is! Initial,
-                child: Text(
-                  WatchContext(context).watch<MainPageBloc>().state is Pause
-                      ? '.'
-                      : ':',
-                  style: textStyle,
-                  textAlign: TextAlign.end,
-                ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                ReadContext(context)
-                    .read<MainPageBloc>()
-                    .add(const MainPageEvent.timerSecondPressed());
-              },
-              child: Text(
-                WatchContext(context).watch<MainPageBloc>().state.second,
-                style: textStyle,
-              ),
-            ),
-            const Spacer(),
-          ],
-        ),
+        const Spacer(),
       ],
+    );
+  }
+}
+
+class _FirstLine extends StatelessWidget {
+  const _FirstLine({
+    Key? key,
+    this.textStyle,
+  }) : super(key: key);
+
+  final TextStyle? textStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    final TextStyle? firstTextStyle =
+        textStyle?.copyWith(fontWeight: FontWeight.w300);
+
+    return TextButton(
+      onPressed: () {
+        ReadContext(context)
+            .read<MainPageBloc>()
+            .add(const MainPageEvent.timerFirstPressed());
+      },
+      child: Text(
+        WatchContext(context).watch<MainPageBloc>().state.first,
+        style: firstTextStyle,
+      ),
     );
   }
 }
@@ -127,31 +193,55 @@ class _ControlButtons extends StatelessWidget {
           children: [
             if (WatchContext(context).watch<MainPageBloc>().state
                 is! Initial) ...[
-              IconButton(
-                onPressed: () {
-                  ReadContext(context)
-                      .read<MainPageBloc>()
-                      .add(const MainPageEvent.timerPausePressed());
-                },
-                icon: Icon(
-                  WatchContext(context).watch<MainPageBloc>().state is Pause
-                      ? Icons.play_arrow
-                      : Icons.pause,
-                ),
-              ),
+              const _PauseButton(),
               const SizedBox(height: 10.0),
-              IconButton(
-                onPressed: () {
-                  ReadContext(context)
-                      .read<MainPageBloc>()
-                      .add(const MainPageEvent.timerResetPressed());
-                },
-                icon: const Icon(Icons.replay),
-              ),
+              const _ResetButton(),
             ],
           ],
         ),
       ],
+    );
+  }
+}
+
+class _ResetButton extends StatelessWidget {
+  const _ResetButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      color: Theme.of(context).textTheme.headline1?.color,
+      onPressed: () {
+        ReadContext(context)
+            .read<MainPageBloc>()
+            .add(const MainPageEvent.timerResetPressed());
+      },
+      icon: const Icon(Icons.replay),
+    );
+  }
+}
+
+class _PauseButton extends StatelessWidget {
+  const _PauseButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      color: Theme.of(context).textTheme.headline1?.color,
+      onPressed: () {
+        ReadContext(context)
+            .read<MainPageBloc>()
+            .add(const MainPageEvent.timerPausePressed());
+      },
+      icon: Icon(
+        WatchContext(context).watch<MainPageBloc>().state is Pause
+            ? Icons.play_arrow
+            : Icons.pause,
+      ),
     );
   }
 }

@@ -65,6 +65,14 @@ class _$MainPageEventTearOff {
   _StateRestored stateRestored() {
     return const _StateRestored();
   }
+
+  _NotificationButtonPressed notificationButtonPressed() {
+    return const _NotificationButtonPressed();
+  }
+
+  _NotificationsChecked notificationsChecked() {
+    return const _NotificationsChecked();
+  }
 }
 
 /// @nodoc
@@ -85,6 +93,8 @@ mixin _$MainPageEvent {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +109,8 @@ mixin _$MainPageEvent {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -113,6 +125,8 @@ mixin _$MainPageEvent {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +142,9 @@ mixin _$MainPageEvent {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -142,6 +159,9 @@ mixin _$MainPageEvent {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -156,6 +176,9 @@ mixin _$MainPageEvent {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -252,6 +275,8 @@ class _$_Started implements _Started {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return started(sharedPreferences);
   }
@@ -269,6 +294,8 @@ class _$_Started implements _Started {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return started?.call(sharedPreferences);
   }
@@ -286,6 +313,8 @@ class _$_Started implements _Started {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -307,6 +336,9 @@ class _$_Started implements _Started {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return started(this);
   }
@@ -324,6 +356,9 @@ class _$_Started implements _Started {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return started?.call(this);
   }
@@ -341,6 +376,9 @@ class _$_Started implements _Started {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -412,6 +450,8 @@ class _$_TimerFirstPressed implements _TimerFirstPressed {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerFirstPressed();
   }
@@ -429,6 +469,8 @@ class _$_TimerFirstPressed implements _TimerFirstPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerFirstPressed?.call();
   }
@@ -446,6 +488,8 @@ class _$_TimerFirstPressed implements _TimerFirstPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerFirstPressed != null) {
@@ -467,6 +511,9 @@ class _$_TimerFirstPressed implements _TimerFirstPressed {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerFirstPressed(this);
   }
@@ -484,6 +531,9 @@ class _$_TimerFirstPressed implements _TimerFirstPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerFirstPressed?.call(this);
   }
@@ -501,6 +551,9 @@ class _$_TimerFirstPressed implements _TimerFirstPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerFirstPressed != null) {
@@ -566,6 +619,8 @@ class _$_TimerSecondPressed implements _TimerSecondPressed {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerSecondPressed();
   }
@@ -583,6 +638,8 @@ class _$_TimerSecondPressed implements _TimerSecondPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerSecondPressed?.call();
   }
@@ -600,6 +657,8 @@ class _$_TimerSecondPressed implements _TimerSecondPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerSecondPressed != null) {
@@ -621,6 +680,9 @@ class _$_TimerSecondPressed implements _TimerSecondPressed {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerSecondPressed(this);
   }
@@ -638,6 +700,9 @@ class _$_TimerSecondPressed implements _TimerSecondPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerSecondPressed?.call(this);
   }
@@ -655,6 +720,9 @@ class _$_TimerSecondPressed implements _TimerSecondPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerSecondPressed != null) {
@@ -744,6 +812,8 @@ class _$_TimerUpdated implements _TimerUpdated {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerUpdated(duration);
   }
@@ -761,6 +831,8 @@ class _$_TimerUpdated implements _TimerUpdated {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerUpdated?.call(duration);
   }
@@ -778,6 +850,8 @@ class _$_TimerUpdated implements _TimerUpdated {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerUpdated != null) {
@@ -799,6 +873,9 @@ class _$_TimerUpdated implements _TimerUpdated {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerUpdated(this);
   }
@@ -816,6 +893,9 @@ class _$_TimerUpdated implements _TimerUpdated {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerUpdated?.call(this);
   }
@@ -833,6 +913,9 @@ class _$_TimerUpdated implements _TimerUpdated {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerUpdated != null) {
@@ -937,6 +1020,8 @@ class _$_TimerStarted implements _TimerStarted {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerStarted(start, finish);
   }
@@ -954,6 +1039,8 @@ class _$_TimerStarted implements _TimerStarted {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerStarted?.call(start, finish);
   }
@@ -971,6 +1058,8 @@ class _$_TimerStarted implements _TimerStarted {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerStarted != null) {
@@ -992,6 +1081,9 @@ class _$_TimerStarted implements _TimerStarted {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerStarted(this);
   }
@@ -1009,6 +1101,9 @@ class _$_TimerStarted implements _TimerStarted {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerStarted?.call(this);
   }
@@ -1026,6 +1121,9 @@ class _$_TimerStarted implements _TimerStarted {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerStarted != null) {
@@ -1098,6 +1196,8 @@ class _$_TimerResetPressed implements _TimerResetPressed {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerResetPressed();
   }
@@ -1115,6 +1215,8 @@ class _$_TimerResetPressed implements _TimerResetPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerResetPressed?.call();
   }
@@ -1132,6 +1234,8 @@ class _$_TimerResetPressed implements _TimerResetPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerResetPressed != null) {
@@ -1153,6 +1257,9 @@ class _$_TimerResetPressed implements _TimerResetPressed {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerResetPressed(this);
   }
@@ -1170,6 +1277,9 @@ class _$_TimerResetPressed implements _TimerResetPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerResetPressed?.call(this);
   }
@@ -1187,6 +1297,9 @@ class _$_TimerResetPressed implements _TimerResetPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerResetPressed != null) {
@@ -1252,6 +1365,8 @@ class _$_TimerStopPressed implements _TimerStopPressed {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerStopPressed();
   }
@@ -1269,6 +1384,8 @@ class _$_TimerStopPressed implements _TimerStopPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerStopPressed?.call();
   }
@@ -1286,6 +1403,8 @@ class _$_TimerStopPressed implements _TimerStopPressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerStopPressed != null) {
@@ -1307,6 +1426,9 @@ class _$_TimerStopPressed implements _TimerStopPressed {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerStopPressed(this);
   }
@@ -1324,6 +1446,9 @@ class _$_TimerStopPressed implements _TimerStopPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerStopPressed?.call(this);
   }
@@ -1341,6 +1466,9 @@ class _$_TimerStopPressed implements _TimerStopPressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerStopPressed != null) {
@@ -1406,6 +1534,8 @@ class _$_TimerPausePressed implements _TimerPausePressed {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerPausePressed();
   }
@@ -1423,6 +1553,8 @@ class _$_TimerPausePressed implements _TimerPausePressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerPausePressed?.call();
   }
@@ -1440,6 +1572,8 @@ class _$_TimerPausePressed implements _TimerPausePressed {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerPausePressed != null) {
@@ -1461,6 +1595,9 @@ class _$_TimerPausePressed implements _TimerPausePressed {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerPausePressed(this);
   }
@@ -1478,6 +1615,9 @@ class _$_TimerPausePressed implements _TimerPausePressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerPausePressed?.call(this);
   }
@@ -1495,6 +1635,9 @@ class _$_TimerPausePressed implements _TimerPausePressed {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerPausePressed != null) {
@@ -1560,6 +1703,8 @@ class _$_TimerFinished implements _TimerFinished {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return timerFinished();
   }
@@ -1577,6 +1722,8 @@ class _$_TimerFinished implements _TimerFinished {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return timerFinished?.call();
   }
@@ -1594,6 +1741,8 @@ class _$_TimerFinished implements _TimerFinished {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerFinished != null) {
@@ -1615,6 +1764,9 @@ class _$_TimerFinished implements _TimerFinished {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return timerFinished(this);
   }
@@ -1632,6 +1784,9 @@ class _$_TimerFinished implements _TimerFinished {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return timerFinished?.call(this);
   }
@@ -1649,6 +1804,9 @@ class _$_TimerFinished implements _TimerFinished {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (timerFinished != null) {
@@ -1714,6 +1872,8 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function() timerPausePressed,
     required TResult Function() timerFinished,
     required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
   }) {
     return stateRestored();
   }
@@ -1731,6 +1891,8 @@ class _$_StateRestored implements _StateRestored {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
   }) {
     return stateRestored?.call();
   }
@@ -1748,6 +1910,8 @@ class _$_StateRestored implements _StateRestored {
     TResult Function()? timerPausePressed,
     TResult Function()? timerFinished,
     TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1769,6 +1933,9 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function(_TimerPausePressed value) timerPausePressed,
     required TResult Function(_TimerFinished value) timerFinished,
     required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
   }) {
     return stateRestored(this);
   }
@@ -1786,6 +1953,9 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
   }) {
     return stateRestored?.call(this);
   }
@@ -1803,6 +1973,9 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(_TimerPausePressed value)? timerPausePressed,
     TResult Function(_TimerFinished value)? timerFinished,
     TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1817,27 +1990,379 @@ abstract class _StateRestored implements MainPageEvent {
 }
 
 /// @nodoc
+abstract class _$NotificationButtonPressedCopyWith<$Res> {
+  factory _$NotificationButtonPressedCopyWith(_NotificationButtonPressed value,
+          $Res Function(_NotificationButtonPressed) then) =
+      __$NotificationButtonPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NotificationButtonPressedCopyWithImpl<$Res>
+    extends _$MainPageEventCopyWithImpl<$Res>
+    implements _$NotificationButtonPressedCopyWith<$Res> {
+  __$NotificationButtonPressedCopyWithImpl(_NotificationButtonPressed _value,
+      $Res Function(_NotificationButtonPressed) _then)
+      : super(_value, (v) => _then(v as _NotificationButtonPressed));
+
+  @override
+  _NotificationButtonPressed get _value =>
+      super._value as _NotificationButtonPressed;
+}
+
+/// @nodoc
+
+class _$_NotificationButtonPressed implements _NotificationButtonPressed {
+  const _$_NotificationButtonPressed();
+
+  @override
+  String toString() {
+    return 'MainPageEvent.notificationButtonPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _NotificationButtonPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Future<SharedPreferences> sharedPreferences)
+        started,
+    required TResult Function() timerFirstPressed,
+    required TResult Function() timerSecondPressed,
+    required TResult Function(Duration duration) timerUpdated,
+    required TResult Function(DateTime start, DateTime finish) timerStarted,
+    required TResult Function() timerResetPressed,
+    required TResult Function() timerStopPressed,
+    required TResult Function() timerPausePressed,
+    required TResult Function() timerFinished,
+    required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
+  }) {
+    return notificationButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Future<SharedPreferences> sharedPreferences)? started,
+    TResult Function()? timerFirstPressed,
+    TResult Function()? timerSecondPressed,
+    TResult Function(Duration duration)? timerUpdated,
+    TResult Function(DateTime start, DateTime finish)? timerStarted,
+    TResult Function()? timerResetPressed,
+    TResult Function()? timerStopPressed,
+    TResult Function()? timerPausePressed,
+    TResult Function()? timerFinished,
+    TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
+  }) {
+    return notificationButtonPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Future<SharedPreferences> sharedPreferences)? started,
+    TResult Function()? timerFirstPressed,
+    TResult Function()? timerSecondPressed,
+    TResult Function(Duration duration)? timerUpdated,
+    TResult Function(DateTime start, DateTime finish)? timerStarted,
+    TResult Function()? timerResetPressed,
+    TResult Function()? timerStopPressed,
+    TResult Function()? timerPausePressed,
+    TResult Function()? timerFinished,
+    TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
+    required TResult orElse(),
+  }) {
+    if (notificationButtonPressed != null) {
+      return notificationButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_TimerFirstPressed value) timerFirstPressed,
+    required TResult Function(_TimerSecondPressed value) timerSecondPressed,
+    required TResult Function(_TimerUpdated value) timerUpdated,
+    required TResult Function(_TimerStarted value) timerStarted,
+    required TResult Function(_TimerResetPressed value) timerResetPressed,
+    required TResult Function(_TimerStopPressed value) timerStopPressed,
+    required TResult Function(_TimerPausePressed value) timerPausePressed,
+    required TResult Function(_TimerFinished value) timerFinished,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
+  }) {
+    return notificationButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_TimerFirstPressed value)? timerFirstPressed,
+    TResult Function(_TimerSecondPressed value)? timerSecondPressed,
+    TResult Function(_TimerUpdated value)? timerUpdated,
+    TResult Function(_TimerStarted value)? timerStarted,
+    TResult Function(_TimerResetPressed value)? timerResetPressed,
+    TResult Function(_TimerStopPressed value)? timerStopPressed,
+    TResult Function(_TimerPausePressed value)? timerPausePressed,
+    TResult Function(_TimerFinished value)? timerFinished,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
+  }) {
+    return notificationButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_TimerFirstPressed value)? timerFirstPressed,
+    TResult Function(_TimerSecondPressed value)? timerSecondPressed,
+    TResult Function(_TimerUpdated value)? timerUpdated,
+    TResult Function(_TimerStarted value)? timerStarted,
+    TResult Function(_TimerResetPressed value)? timerResetPressed,
+    TResult Function(_TimerStopPressed value)? timerStopPressed,
+    TResult Function(_TimerPausePressed value)? timerPausePressed,
+    TResult Function(_TimerFinished value)? timerFinished,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
+    required TResult orElse(),
+  }) {
+    if (notificationButtonPressed != null) {
+      return notificationButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NotificationButtonPressed implements MainPageEvent {
+  const factory _NotificationButtonPressed() = _$_NotificationButtonPressed;
+}
+
+/// @nodoc
+abstract class _$NotificationsCheckedCopyWith<$Res> {
+  factory _$NotificationsCheckedCopyWith(_NotificationsChecked value,
+          $Res Function(_NotificationsChecked) then) =
+      __$NotificationsCheckedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NotificationsCheckedCopyWithImpl<$Res>
+    extends _$MainPageEventCopyWithImpl<$Res>
+    implements _$NotificationsCheckedCopyWith<$Res> {
+  __$NotificationsCheckedCopyWithImpl(
+      _NotificationsChecked _value, $Res Function(_NotificationsChecked) _then)
+      : super(_value, (v) => _then(v as _NotificationsChecked));
+
+  @override
+  _NotificationsChecked get _value => super._value as _NotificationsChecked;
+}
+
+/// @nodoc
+
+class _$_NotificationsChecked implements _NotificationsChecked {
+  const _$_NotificationsChecked();
+
+  @override
+  String toString() {
+    return 'MainPageEvent.notificationsChecked()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _NotificationsChecked);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Future<SharedPreferences> sharedPreferences)
+        started,
+    required TResult Function() timerFirstPressed,
+    required TResult Function() timerSecondPressed,
+    required TResult Function(Duration duration) timerUpdated,
+    required TResult Function(DateTime start, DateTime finish) timerStarted,
+    required TResult Function() timerResetPressed,
+    required TResult Function() timerStopPressed,
+    required TResult Function() timerPausePressed,
+    required TResult Function() timerFinished,
+    required TResult Function() stateRestored,
+    required TResult Function() notificationButtonPressed,
+    required TResult Function() notificationsChecked,
+  }) {
+    return notificationsChecked();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Future<SharedPreferences> sharedPreferences)? started,
+    TResult Function()? timerFirstPressed,
+    TResult Function()? timerSecondPressed,
+    TResult Function(Duration duration)? timerUpdated,
+    TResult Function(DateTime start, DateTime finish)? timerStarted,
+    TResult Function()? timerResetPressed,
+    TResult Function()? timerStopPressed,
+    TResult Function()? timerPausePressed,
+    TResult Function()? timerFinished,
+    TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
+  }) {
+    return notificationsChecked?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Future<SharedPreferences> sharedPreferences)? started,
+    TResult Function()? timerFirstPressed,
+    TResult Function()? timerSecondPressed,
+    TResult Function(Duration duration)? timerUpdated,
+    TResult Function(DateTime start, DateTime finish)? timerStarted,
+    TResult Function()? timerResetPressed,
+    TResult Function()? timerStopPressed,
+    TResult Function()? timerPausePressed,
+    TResult Function()? timerFinished,
+    TResult Function()? stateRestored,
+    TResult Function()? notificationButtonPressed,
+    TResult Function()? notificationsChecked,
+    required TResult orElse(),
+  }) {
+    if (notificationsChecked != null) {
+      return notificationsChecked();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_TimerFirstPressed value) timerFirstPressed,
+    required TResult Function(_TimerSecondPressed value) timerSecondPressed,
+    required TResult Function(_TimerUpdated value) timerUpdated,
+    required TResult Function(_TimerStarted value) timerStarted,
+    required TResult Function(_TimerResetPressed value) timerResetPressed,
+    required TResult Function(_TimerStopPressed value) timerStopPressed,
+    required TResult Function(_TimerPausePressed value) timerPausePressed,
+    required TResult Function(_TimerFinished value) timerFinished,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_NotificationButtonPressed value)
+        notificationButtonPressed,
+    required TResult Function(_NotificationsChecked value) notificationsChecked,
+  }) {
+    return notificationsChecked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_TimerFirstPressed value)? timerFirstPressed,
+    TResult Function(_TimerSecondPressed value)? timerSecondPressed,
+    TResult Function(_TimerUpdated value)? timerUpdated,
+    TResult Function(_TimerStarted value)? timerStarted,
+    TResult Function(_TimerResetPressed value)? timerResetPressed,
+    TResult Function(_TimerStopPressed value)? timerStopPressed,
+    TResult Function(_TimerPausePressed value)? timerPausePressed,
+    TResult Function(_TimerFinished value)? timerFinished,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
+  }) {
+    return notificationsChecked?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_TimerFirstPressed value)? timerFirstPressed,
+    TResult Function(_TimerSecondPressed value)? timerSecondPressed,
+    TResult Function(_TimerUpdated value)? timerUpdated,
+    TResult Function(_TimerStarted value)? timerStarted,
+    TResult Function(_TimerResetPressed value)? timerResetPressed,
+    TResult Function(_TimerStopPressed value)? timerStopPressed,
+    TResult Function(_TimerPausePressed value)? timerPausePressed,
+    TResult Function(_TimerFinished value)? timerFinished,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_NotificationButtonPressed value)?
+        notificationButtonPressed,
+    TResult Function(_NotificationsChecked value)? notificationsChecked,
+    required TResult orElse(),
+  }) {
+    if (notificationsChecked != null) {
+      return notificationsChecked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NotificationsChecked implements MainPageEvent {
+  const factory _NotificationsChecked() = _$_NotificationsChecked;
+}
+
+/// @nodoc
 class _$MainPageStateTearOff {
   const _$MainPageStateTearOff();
 
-  Initial initial({String first = '52', String second = '17'}) {
+  Initial initial(
+      {String first = '52',
+      String second = '17',
+      bool notificationsEnabled = true}) {
     return Initial(
       first: first,
       second: second,
+      notificationsEnabled: notificationsEnabled,
     );
   }
 
-  InProgress inProgress({required String first, required String second}) {
+  InProgress inProgress(
+      {required String first,
+      required String second,
+      required bool notificationsEnabled}) {
     return InProgress(
       first: first,
       second: second,
+      notificationsEnabled: notificationsEnabled,
     );
   }
 
-  Pause pause({required String first, required String second}) {
+  Pause pause(
+      {required String first,
+      required String second,
+      required bool notificationsEnabled}) {
     return Pause(
       first: first,
       second: second,
+      notificationsEnabled: notificationsEnabled,
     );
   }
 }
@@ -1849,26 +2374,39 @@ const $MainPageState = _$MainPageStateTearOff();
 mixin _$MainPageState {
   String get first => throw _privateConstructorUsedError;
   String get second => throw _privateConstructorUsedError;
+  bool get notificationsEnabled => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String first, String second) initial,
-    required TResult Function(String first, String second) inProgress,
-    required TResult Function(String first, String second) pause,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        initial,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        inProgress,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        pause,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1905,7 +2443,7 @@ abstract class $MainPageStateCopyWith<$Res> {
   factory $MainPageStateCopyWith(
           MainPageState value, $Res Function(MainPageState) then) =
       _$MainPageStateCopyWithImpl<$Res>;
-  $Res call({String first, String second});
+  $Res call({String first, String second, bool notificationsEnabled});
 }
 
 /// @nodoc
@@ -1921,6 +2459,7 @@ class _$MainPageStateCopyWithImpl<$Res>
   $Res call({
     Object? first = freezed,
     Object? second = freezed,
+    Object? notificationsEnabled = freezed,
   }) {
     return _then(_value.copyWith(
       first: first == freezed
@@ -1931,6 +2470,10 @@ class _$MainPageStateCopyWithImpl<$Res>
           ? _value.second
           : second // ignore: cast_nullable_to_non_nullable
               as String,
+      notificationsEnabled: notificationsEnabled == freezed
+          ? _value.notificationsEnabled
+          : notificationsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1940,7 +2483,7 @@ abstract class $InitialCopyWith<$Res> implements $MainPageStateCopyWith<$Res> {
   factory $InitialCopyWith(Initial value, $Res Function(Initial) then) =
       _$InitialCopyWithImpl<$Res>;
   @override
-  $Res call({String first, String second});
+  $Res call({String first, String second, bool notificationsEnabled});
 }
 
 /// @nodoc
@@ -1956,6 +2499,7 @@ class _$InitialCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
   $Res call({
     Object? first = freezed,
     Object? second = freezed,
+    Object? notificationsEnabled = freezed,
   }) {
     return _then(Initial(
       first: first == freezed
@@ -1966,6 +2510,10 @@ class _$InitialCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
           ? _value.second
           : second // ignore: cast_nullable_to_non_nullable
               as String,
+      notificationsEnabled: notificationsEnabled == freezed
+          ? _value.notificationsEnabled
+          : notificationsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1973,7 +2521,10 @@ class _$InitialCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Initial implements Initial {
-  const _$Initial({this.first = '52', this.second = '17'});
+  const _$Initial(
+      {this.first = '52',
+      this.second = '17',
+      this.notificationsEnabled = true});
 
   @JsonKey()
   @override
@@ -1981,10 +2532,13 @@ class _$Initial implements Initial {
   @JsonKey()
   @override
   final String second;
+  @JsonKey()
+  @override
+  final bool notificationsEnabled;
 
   @override
   String toString() {
-    return 'MainPageState.initial(first: $first, second: $second)';
+    return 'MainPageState.initial(first: $first, second: $second, notificationsEnabled: $notificationsEnabled)';
   }
 
   @override
@@ -1993,14 +2547,17 @@ class _$Initial implements Initial {
         (other.runtimeType == runtimeType &&
             other is Initial &&
             const DeepCollectionEquality().equals(other.first, first) &&
-            const DeepCollectionEquality().equals(other.second, second));
+            const DeepCollectionEquality().equals(other.second, second) &&
+            const DeepCollectionEquality()
+                .equals(other.notificationsEnabled, notificationsEnabled));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(first),
-      const DeepCollectionEquality().hash(second));
+      const DeepCollectionEquality().hash(second),
+      const DeepCollectionEquality().hash(notificationsEnabled));
 
   @JsonKey(ignore: true)
   @override
@@ -2010,33 +2567,45 @@ class _$Initial implements Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String first, String second) initial,
-    required TResult Function(String first, String second) inProgress,
-    required TResult Function(String first, String second) pause,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        initial,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        inProgress,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        pause,
   }) {
-    return initial(first, second);
+    return initial(first, second, notificationsEnabled);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
   }) {
-    return initial?.call(first, second);
+    return initial?.call(first, second, notificationsEnabled);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(first, second);
+      return initial(first, second, notificationsEnabled);
     }
     return orElse();
   }
@@ -2077,12 +2646,15 @@ class _$Initial implements Initial {
 }
 
 abstract class Initial implements MainPageState {
-  const factory Initial({String first, String second}) = _$Initial;
+  const factory Initial(
+      {String first, String second, bool notificationsEnabled}) = _$Initial;
 
   @override
   String get first;
   @override
   String get second;
+  @override
+  bool get notificationsEnabled;
   @override
   @JsonKey(ignore: true)
   $InitialCopyWith<Initial> get copyWith => throw _privateConstructorUsedError;
@@ -2095,7 +2667,7 @@ abstract class $InProgressCopyWith<$Res>
           InProgress value, $Res Function(InProgress) then) =
       _$InProgressCopyWithImpl<$Res>;
   @override
-  $Res call({String first, String second});
+  $Res call({String first, String second, bool notificationsEnabled});
 }
 
 /// @nodoc
@@ -2111,6 +2683,7 @@ class _$InProgressCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
   $Res call({
     Object? first = freezed,
     Object? second = freezed,
+    Object? notificationsEnabled = freezed,
   }) {
     return _then(InProgress(
       first: first == freezed
@@ -2121,6 +2694,10 @@ class _$InProgressCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
           ? _value.second
           : second // ignore: cast_nullable_to_non_nullable
               as String,
+      notificationsEnabled: notificationsEnabled == freezed
+          ? _value.notificationsEnabled
+          : notificationsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2128,16 +2705,21 @@ class _$InProgressCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InProgress implements InProgress {
-  const _$InProgress({required this.first, required this.second});
+  const _$InProgress(
+      {required this.first,
+      required this.second,
+      required this.notificationsEnabled});
 
   @override
   final String first;
   @override
   final String second;
+  @override
+  final bool notificationsEnabled;
 
   @override
   String toString() {
-    return 'MainPageState.inProgress(first: $first, second: $second)';
+    return 'MainPageState.inProgress(first: $first, second: $second, notificationsEnabled: $notificationsEnabled)';
   }
 
   @override
@@ -2146,14 +2728,17 @@ class _$InProgress implements InProgress {
         (other.runtimeType == runtimeType &&
             other is InProgress &&
             const DeepCollectionEquality().equals(other.first, first) &&
-            const DeepCollectionEquality().equals(other.second, second));
+            const DeepCollectionEquality().equals(other.second, second) &&
+            const DeepCollectionEquality()
+                .equals(other.notificationsEnabled, notificationsEnabled));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(first),
-      const DeepCollectionEquality().hash(second));
+      const DeepCollectionEquality().hash(second),
+      const DeepCollectionEquality().hash(notificationsEnabled));
 
   @JsonKey(ignore: true)
   @override
@@ -2163,33 +2748,45 @@ class _$InProgress implements InProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String first, String second) initial,
-    required TResult Function(String first, String second) inProgress,
-    required TResult Function(String first, String second) pause,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        initial,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        inProgress,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        pause,
   }) {
-    return inProgress(first, second);
+    return inProgress(first, second, notificationsEnabled);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
   }) {
-    return inProgress?.call(first, second);
+    return inProgress?.call(first, second, notificationsEnabled);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
-      return inProgress(first, second);
+      return inProgress(first, second, notificationsEnabled);
     }
     return orElse();
   }
@@ -2230,13 +2827,17 @@ class _$InProgress implements InProgress {
 }
 
 abstract class InProgress implements MainPageState {
-  const factory InProgress({required String first, required String second}) =
-      _$InProgress;
+  const factory InProgress(
+      {required String first,
+      required String second,
+      required bool notificationsEnabled}) = _$InProgress;
 
   @override
   String get first;
   @override
   String get second;
+  @override
+  bool get notificationsEnabled;
   @override
   @JsonKey(ignore: true)
   $InProgressCopyWith<InProgress> get copyWith =>
@@ -2248,7 +2849,7 @@ abstract class $PauseCopyWith<$Res> implements $MainPageStateCopyWith<$Res> {
   factory $PauseCopyWith(Pause value, $Res Function(Pause) then) =
       _$PauseCopyWithImpl<$Res>;
   @override
-  $Res call({String first, String second});
+  $Res call({String first, String second, bool notificationsEnabled});
 }
 
 /// @nodoc
@@ -2264,6 +2865,7 @@ class _$PauseCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
   $Res call({
     Object? first = freezed,
     Object? second = freezed,
+    Object? notificationsEnabled = freezed,
   }) {
     return _then(Pause(
       first: first == freezed
@@ -2274,6 +2876,10 @@ class _$PauseCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
           ? _value.second
           : second // ignore: cast_nullable_to_non_nullable
               as String,
+      notificationsEnabled: notificationsEnabled == freezed
+          ? _value.notificationsEnabled
+          : notificationsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2281,16 +2887,21 @@ class _$PauseCopyWithImpl<$Res> extends _$MainPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Pause implements Pause {
-  const _$Pause({required this.first, required this.second});
+  const _$Pause(
+      {required this.first,
+      required this.second,
+      required this.notificationsEnabled});
 
   @override
   final String first;
   @override
   final String second;
+  @override
+  final bool notificationsEnabled;
 
   @override
   String toString() {
-    return 'MainPageState.pause(first: $first, second: $second)';
+    return 'MainPageState.pause(first: $first, second: $second, notificationsEnabled: $notificationsEnabled)';
   }
 
   @override
@@ -2299,14 +2910,17 @@ class _$Pause implements Pause {
         (other.runtimeType == runtimeType &&
             other is Pause &&
             const DeepCollectionEquality().equals(other.first, first) &&
-            const DeepCollectionEquality().equals(other.second, second));
+            const DeepCollectionEquality().equals(other.second, second) &&
+            const DeepCollectionEquality()
+                .equals(other.notificationsEnabled, notificationsEnabled));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(first),
-      const DeepCollectionEquality().hash(second));
+      const DeepCollectionEquality().hash(second),
+      const DeepCollectionEquality().hash(notificationsEnabled));
 
   @JsonKey(ignore: true)
   @override
@@ -2316,33 +2930,45 @@ class _$Pause implements Pause {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String first, String second) initial,
-    required TResult Function(String first, String second) inProgress,
-    required TResult Function(String first, String second) pause,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        initial,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        inProgress,
+    required TResult Function(
+            String first, String second, bool notificationsEnabled)
+        pause,
   }) {
-    return pause(first, second);
+    return pause(first, second, notificationsEnabled);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
   }) {
-    return pause?.call(first, second);
+    return pause?.call(first, second, notificationsEnabled);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String first, String second)? initial,
-    TResult Function(String first, String second)? inProgress,
-    TResult Function(String first, String second)? pause,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        initial,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        inProgress,
+    TResult Function(String first, String second, bool notificationsEnabled)?
+        pause,
     required TResult orElse(),
   }) {
     if (pause != null) {
-      return pause(first, second);
+      return pause(first, second, notificationsEnabled);
     }
     return orElse();
   }
@@ -2383,13 +3009,17 @@ class _$Pause implements Pause {
 }
 
 abstract class Pause implements MainPageState {
-  const factory Pause({required String first, required String second}) =
-      _$Pause;
+  const factory Pause(
+      {required String first,
+      required String second,
+      required bool notificationsEnabled}) = _$Pause;
 
   @override
   String get first;
   @override
   String get second;
+  @override
+  bool get notificationsEnabled;
   @override
   @JsonKey(ignore: true)
   $PauseCopyWith<Pause> get copyWith => throw _privateConstructorUsedError;

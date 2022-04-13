@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
+import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:system_settings/system_settings.dart';
 import 'package:timezone/timezone.dart';
 
 import '../../controllers/notifications_bloc/notifications_bloc.dart';
@@ -36,6 +37,10 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     on<_TimerPausePressed>(_timerPausePressed);
 
     on<_TimerFinished>(_timerFinished);
+
+    on<_NotificationButtonPressed>(_notificationButtonPressed);
+
+    on<_NotificationsChecked>(_notificationsChecked);
 
     add(_Started(sharedPreferences));
   }
@@ -85,6 +90,8 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     _sharedPreferences = await event.sharedPreferences;
     _getData();
 
+    add(const _NotificationsChecked());
+
     _timerBloc.stream.listen((state) {
       state.whenOrNull(
         timerStart: (_, finish, __) {
@@ -130,7 +137,13 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     final String minutes = _minutes(event.duration);
     final String seconds = _seconds(event.duration);
 
-    emit(InProgress(first: minutes, second: seconds));
+    emit(
+      InProgress(
+        first: minutes,
+        second: seconds,
+        notificationsEnabled: state.notificationsEnabled,
+      ),
+    );
   }
 
   FutureOr<void> _timerFirstPressed(
@@ -140,7 +153,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     if (state is! Initial) return null;
 
     final DateTime start = DateTime.now();
-    final DateTime finish = start.add(const Duration(minutes: 52)); //TODO
+    final DateTime finish = start.add(const Duration(minutes: 52));
 
     _addNotification(
       finish: finish,
@@ -207,28 +220,30 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     _TimerPausePressed event,
     Emitter<MainPageState> emit,
   ) {
-    state.whenOrNull(
-      inProgress: (first, second) {
+    state.mapOrNull(
+      inProgress: (value) {
         _timerBloc.add(
           const TimerEvent.paused(),
         );
 
         emit(
           Pause(
-            first: first,
-            second: second,
+            first: value.first,
+            second: value.second,
+            notificationsEnabled: value.notificationsEnabled,
           ),
         );
       },
-      pause: (first, second) {
+      pause: (value) {
         _timerBloc.add(
           const TimerEvent.unpaused(),
         );
 
         emit(
           InProgress(
-            first: first,
-            second: second,
+            first: value.first,
+            second: value.second,
+            notificationsEnabled: value.notificationsEnabled,
           ),
         );
       },
@@ -239,12 +254,35 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     _TimerFinished event,
     Emitter<MainPageState> emit,
   ) async {
-    final bool enabled = await _notificationsBloc.areNotificationsEnabled();
-
-    if (!enabled) {
-      FlutterRingtonePlayer.playNotification();
-    }
-
     emit(const Initial());
+  }
+
+  FutureOr<void> _notificationButtonPressed(
+    _NotificationButtonPressed event,
+    Emitter<MainPageState> emit,
+  ) {
+    SystemChannels.lifecycle.setMessageHandler((message) {
+      if (message == 'AppLifecycleState.resumed') {
+        add(const _NotificationsChecked());
+      }
+
+      return Future.value(message);
+    });
+
+    SystemSettings.appNotifications();
+  }
+
+  FutureOr<void> _notificationsChecked(
+    _NotificationsChecked event,
+    Emitter<MainPageState> emit,
+  ) async {
+    final bool notificationsEnabled =
+        await _notificationsBloc.areNotificationsEnabled();
+
+    emit(
+      state.copyWith(
+        notificationsEnabled: notificationsEnabled,
+      ),
+    );
   }
 }

@@ -25,4 +25,9 @@ class MainPageEvent with _$MainPageEvent {
   const factory MainPageEvent.timerFinished() = _TimerFinished;
 
   const factory MainPageEvent.stateRestored() = _StateRestored;
+
+  const factory MainPageEvent.notificationButtonPressed() =
+      _NotificationButtonPressed;
+
+  const factory MainPageEvent.notificationsChecked() = _NotificationsChecked;
 }
