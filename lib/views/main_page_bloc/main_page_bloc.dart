@@ -93,21 +93,21 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
     add(const _NotificationsChecked());
 
     _timerBloc.stream.listen((state) {
-      state.whenOrNull(
-        timerStart: (_, finish, __) {
+      state.mapOrNull(
+        timerStart: (value) {
           _sharedPreferences.setInt(
             _notificationKey,
-            finish!.millisecondsSinceEpoch,
+            value.finish!.millisecondsSinceEpoch,
           );
         },
-        inProgress: (_, __, duration) {
-          add(_TimerUpdated(duration));
+        inProgress: (value) {
+          add(_TimerUpdated(value.current));
         },
-        pause: (current) {
+        pause: (_) {
           _notificationsBloc.add(const NotificationsEvent.canceled());
           _sharedPreferences.remove(_notificationKey);
         },
-        finish: () {
+        finish: (_) {
           add(const _TimerFinished());
           _sharedPreferences.remove(_notificationKey);
         },
