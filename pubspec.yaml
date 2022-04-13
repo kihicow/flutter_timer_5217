@@ -11,13 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_ringtone_player: ^3.2.0
   flutter_bloc: ^8.0.1
   flutter_local_notifications: ^9.4.0
   flutter_modular: ^4.5.1+1
   flutter_native_timezone: ^2.0.0
+  flutter_ringtone_player: ^3.2.0
   freezed_annotation: ^1.1.0
   shared_preferences: ^2.0.13
+  system_settings: ^2.1.0
 
 dev_dependencies:
   flutter_test:
