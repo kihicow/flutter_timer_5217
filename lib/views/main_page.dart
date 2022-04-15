@@ -67,17 +67,22 @@ class _NotificationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      color: Theme.of(context).textTheme.headline1?.color,
-      onPressed: () {
-        ReadContext(context)
-            .read<MainPageBloc>()
-            .add(const MainPageEvent.notificationButtonPressed());
-      },
-      icon:
-          WatchContext(context).watch<MainPageBloc>().state.notificationsEnabled
-              ? const Icon(Icons.notifications_outlined)
-              : const Icon(Icons.notifications_off_outlined),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: IconButton(
+        color: Theme.of(context).textTheme.headline1?.color,
+        onPressed: () {
+          ReadContext(context)
+              .read<MainPageBloc>()
+              .add(const MainPageEvent.notificationButtonPressed());
+        },
+        icon: WatchContext(context)
+                .watch<MainPageBloc>()
+                .state
+                .notificationsEnabled
+            ? const Icon(Icons.notifications_outlined)
+            : const Icon(Icons.notifications_off_outlined),
+      ),
     );
   }
 }
